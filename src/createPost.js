@@ -9,9 +9,9 @@ const CreatePost = (props) => {
 
   const navigate = useNavigate();
 
-  const requestCreatePost = () => {
+  const requestCreatePost = async () => {
     try {
-      const response = fetch("http://localhost:8080/post", {
+      const response = await fetch("http://localhost:8080/post", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,8 +30,8 @@ const CreatePost = (props) => {
       console.error("Error posting data:", error);
     } finally {
       setLoading(false);
+      navigate("/");
     }
-    navigate("/");
   };
 
   return (
