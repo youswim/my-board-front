@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const PostList = (props) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const navigate = useNavigate();
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,7 +30,7 @@ const PostList = (props) => {
       ) : (
         <div>
           {data.map((element) => {
-            return (<div key={element.id}>{element.id} : {element.title}</div>)
+            return (<div key={element.id} onClick={()=>navigate("/post/" + element.id)}>{element.id} : {element.title}</div>)
           })}
         </div>
       )}
