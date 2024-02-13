@@ -34,6 +34,7 @@ const PostList = (props) => {
           })}
         </div>
       )}
+      <button onClick={()=>navigate("/new-post")}>새 게시물 등록하기</button>
     </div>
   );
 };
