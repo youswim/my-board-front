@@ -49,6 +49,7 @@ const PostDetail = (props) => {
         <div>
             {loading ? <p>Loading...</p> : <div><div>{title}</div><div>{content}</div></div>}
             <button onClick={()=>{deleteData(); navigate("/");}}>게시물 삭제하기</button>
+            <button onClick={()=>{navigate("/edit-post/" + postId)}}>게시글 수정하기</button>
             {responseMessage && <p>{responseMessage}</p>}
         </div>
     )
